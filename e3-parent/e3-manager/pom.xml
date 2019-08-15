@@ -11,14 +11,26 @@
     <packaging>pom</packaging>
     <modules>
         <module>e3-manager-dao</module>
-        <module>e3-manager-dao</module>
         <module>e3-manager-interface</module>
         <module>e3-manager-service</module>
-        <module>e3-manager-entity</module>
         <module>e3-manager-entity</module>
         <module>e3-manager-web</module>
     </modules>
     <artifactId>e3-manager</artifactId>
 
-
+    <build>
+        <plugins>
+            <!-- 配置Tomcat插件 -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <port>8080</port>
+                    <path>/e3mall</path>
+                    <uriEncoding>UTF-8</uriEncoding>
+                    <server>e3Tomcat7</server>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置生成器 -->
+<generatorConfiguration>
+
+    <properties resource="dbconfig.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value=""/>
+        <property name="endingDelimiter" value=""/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.jhsafe.school.commons.dao.IBaseDao"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="forceAnnotation" value="true"/>
+        </plugin>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.user}"
+                        password="${jdbc.password}">
+        </jdbcConnection>
+
+<!--         <javaModelGenerator  targetPackage="com.jhsafe.school.entity" targetProject="E:/work/eclipse-workspace/jhsafe/jhsafe.school.entity/src/main/java"> -->
+<!--         	<property name="rootClass" value="com.jhsafe.school.commons.entity.BaseEntity"/> -->
+<!--         </javaModelGenerator> -->
+		<javaModelGenerator  targetPackage="com.jhsafe.school.commons.entity.auth" targetProject="src/main/java">
+        	<property name="rootClass" value="com.jhsafe.school.commons.entity.BaseEntity"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator targetPackage="com.jhsafe.school.commons.dao.auth" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+<!--         <table tableName="T_ROLE" mapperName="IRoleDao" domainObjectName="Role"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_APP_MANAGER" mapperName="IAppManagerDao" domainObjectName="AppManager"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+        	
+<!--         </table> -->
+<!--         <table tableName="T_DEPARTMENT" mapperName="IDepartmentDao" domainObjectName="Department"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_DEPARTMENT_PARENT_RECORD" mapperName="IDepartmentParentRecordDao" domainObjectName="DepartmentParentRecord"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_EMP_ROLE_REL" mapperName="IEmpRoleRelDao" domainObjectName="EmpRoleRel"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_EMPLOYEE" mapperName="IEmployeeDao" domainObjectName="Employee"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_FUNCTION" mapperName="IFunctionDao" domainObjectName="Function"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_FUNCTION_RESOURCE_REL" mapperName="IFunctionResourceRelDao" domainObjectName="FunctionResourceRel"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_PARAMETER" mapperName="IParameterDao" domainObjectName="Parameter"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_RESOURCE" mapperName="IResourceDao" domainObjectName="Resource"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_WEB_MANAGER" mapperName="IWebManagerDao" domainObjectName="WebManager"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_ROLE_FUNCTION_REL" mapperName="IRoleFunctionDao" domainObjectName="RoleFunction"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_ROLE_ORG_FUNC_REL" mapperName="IRoleOrgFuncRelDao" domainObjectName="RoleOrgFuncRel"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+<!--         <table tableName="T_ROLE_RESOURCE_REL" mapperName="IRoleResourceRelDao" domainObjectName="RoleResourceRel"  > -->
+<!--         	<ignoreColumn column="ID"/> -->
+<!--         	<ignoreColumn column="CREATOR"/> -->
+<!--         	<ignoreColumn column="CREATE_DATE"/> -->
+<!--         	<ignoreColumn column="UPDATER"/> -->
+<!--         	<ignoreColumn column="UPDATE_DATE"/> -->
+<!--         </table> -->
+		<table tableName="T_EMPLOYEE_IDENTITY" mapperName="iEmployeeIdentityDao" domainObjectName="EmployeeIdentity"  >
+        	<ignoreColumn column="ID"/>
+        	<ignoreColumn column="CREATOR"/>
+        	<ignoreColumn column="CREATE_DATE"/>
+        	<ignoreColumn column="UPDATER"/>
+        	<ignoreColumn column="UPDATE_DATE"/>
+        </table>
+    </context>
+</generatorConfiguration>
