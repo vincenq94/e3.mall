@@ -29,6 +29,7 @@
 <!--         </javaModelGenerator> -->
 		<javaModelGenerator  targetPackage="com.jhsafe.school.commons.entity.auth" targetProject="src/main/java">
         	<property name="rootClass" value="com.jhsafe.school.commons.entity.BaseEntity"/>
+            <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
 
