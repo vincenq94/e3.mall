@@ -46,7 +46,7 @@
         <!-- 配置数据库连接，一定要有 -->
         <jdbcConnection driverClass="${jdbc.driverClass}"
                         connectionURL="${jdbc.url}"
-                        userId="${jdbc.user}"
+                        userId="${jdbc.username}"
                         password="${jdbc.password}">
         </jdbcConnection>
 
