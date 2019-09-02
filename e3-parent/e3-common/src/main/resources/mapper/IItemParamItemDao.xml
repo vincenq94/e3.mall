@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.itheima.dao.IItemParamItemDao">
-  <resultMap id="BaseResultMap" type="cn.itheima.entity.ItemParamItem">
+<mapper namespace="cn.itheima.manager.dao.IItemParamItemDao">
+  <resultMap id="BaseResultMap" type="cn.itheima.manager.entity.ItemParamItem">
     <!--
       WARNING - @mbg.generated
     -->

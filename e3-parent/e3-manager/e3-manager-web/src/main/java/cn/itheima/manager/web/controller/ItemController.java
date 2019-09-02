@@ -1,0 +1,37 @@
+package cn.itheima.manager.web.controller;
+
+import cn.itheima.commons.controller.BaseController;
+import cn.itheima.manager.entity.Item;
+import cn.itheima.manager.service.IItemService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RequestMapping(value="itemController")
+@Controller
+public class ItemController extends BaseController {
+//    private Logger logger = LoggerFactory.getLogger(getClass());
+    @Autowired
+    private IItemService itemService;
+
+
+    @RequestMapping(value="selectItemInfoById")
+    @ResponseBody
+    public Map<String,Object> selectItemInfoById(Item item){
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            Item itemInfo = itemService.selectByPrimaryKey(item);
+            map.put("itemInfo",itemInfo);
+        } catch (Exception e) {
+//            logger.error("获取服务档案信息异常", e);
+            map.put(_MESSAGE, "查询失败");
+        }
+        return map;
+    }
+
+
+}

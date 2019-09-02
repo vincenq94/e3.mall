@@ -36,7 +36,7 @@
         <!-- 通用mapper插件 -->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <!-- 这里最关键的参数就是 mappers，配置后生成的 Mapper 接口都会自动继承上改接口 -->
-            <property name="mappers" value="cn.itheima.dao.IBaseDao"/>
+            <property name="mappers" value="cn.itheima.commons.dao.IBaseDao"/>
             <!-- caseSensitive 是否区分大小写，默认值 false。-->
             <property name="caseSensitive" value="true"/>
             <!-- forceAnnotation 是否强制生成注解，默认 false，如果设置为 true，不管数据库名和字段名是否一致，都会生成注解（包含 @Table 和 @Column）   -->
@@ -59,7 +59,7 @@
         -->
 		<javaModelGenerator targetPackage="cn.itheima.entity" targetProject="src/main/java">
             <!-- 生成的实体类继承该类-->
-        	<property name="rootClass" value="cn.itheima.entity.BaseEntity"/>
+        	<property name="rootClass" value="cn.itheima.commons.entity.BaseEntity"/>
             <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
