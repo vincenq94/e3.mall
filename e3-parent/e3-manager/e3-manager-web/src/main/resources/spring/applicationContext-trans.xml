@@ -35,6 +35,6 @@
 			 |第三个 * —— 通配包com.evan.crm.service下的随便率性class的随便率性办法| 
 			 |第四个 .. —— 通配 办法可以有0个或多个参数|
 		-->
-		<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.itheima.manager.service..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* cn.itheima..service..*.*(..))" />
 	</aop:config>
 </beans>

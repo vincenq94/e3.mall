@@ -1,7 +1,7 @@
 package cn.itheima.manager.entity;
 
 
-import cn.itheima.manager.entity.base.BaseEntity;
+import cn.itheima.commons.entity.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;

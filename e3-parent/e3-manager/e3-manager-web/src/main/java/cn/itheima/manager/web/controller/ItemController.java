@@ -3,6 +3,8 @@ package cn.itheima.manager.web.controller;
 import cn.itheima.commons.controller.BaseController;
 import cn.itheima.manager.entity.Item;
 import cn.itheima.manager.service.IItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +16,7 @@ import java.util.Map;
 @RequestMapping(value="itemController")
 @Controller
 public class ItemController extends BaseController {
-//    private Logger logger = LoggerFactory.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
     private IItemService itemService;
 
@@ -22,12 +24,12 @@ public class ItemController extends BaseController {
     @RequestMapping(value="selectItemInfoById")
     @ResponseBody
     public Map<String,Object> selectItemInfoById(Item item){
-        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<>();
         try {
             Item itemInfo = itemService.selectByPrimaryKey(item);
             map.put("itemInfo",itemInfo);
         } catch (Exception e) {
-//            logger.error("获取服务档案信息异常", e);
+            logger.error("获取服务档案信息异常", e);
             map.put(_MESSAGE, "查询失败");
         }
         return map;
