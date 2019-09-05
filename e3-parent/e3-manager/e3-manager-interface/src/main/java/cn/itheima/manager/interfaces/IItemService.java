@@ -1,4 +1,4 @@
-package cn.itheima.manager.service;
+package cn.itheima.manager.interfaces;
 
 import cn.itheima.commons.service.IBaseService;
 import cn.itheima.manager.entity.Item;

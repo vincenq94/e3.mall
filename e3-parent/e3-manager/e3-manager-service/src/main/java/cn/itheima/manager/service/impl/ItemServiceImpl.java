@@ -3,7 +3,7 @@ package cn.itheima.manager.service.impl;
 import cn.itheima.commons.service.impl.BaseServiceImpl;
 import cn.itheima.manager.dao.IItemDao;
 import cn.itheima.manager.entity.Item;
-import cn.itheima.manager.service.IItemService;
+import cn.itheima.manager.interfaces.IItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 @Table(name = "tb_item")
-public class Item extends BaseEntity {
+public class Item extends BaseEntity{
     /**
      * 商品标题
      */

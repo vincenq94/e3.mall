@@ -2,7 +2,7 @@ package cn.itheima.manager.web.controller;
 
 import cn.itheima.commons.controller.BaseController;
 import cn.itheima.manager.entity.Item;
-import cn.itheima.manager.service.IItemService;
+import cn.itheima.manager.interfaces.IItemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
