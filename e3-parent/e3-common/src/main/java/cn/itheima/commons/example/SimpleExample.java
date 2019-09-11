@@ -11,9 +11,12 @@ import tk.mybatis.mapper.util.MetaObjectUtil;
 import tk.mybatis.mapper.util.Sqls;
 import tk.mybatis.mapper.util.StringUtil;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class SimpleExample implements IDynamicTableName {
+public class SimpleExample implements IDynamicTableName, Serializable {
+
+    private static final long serialVersionUID = 2L;
 
 	protected String orderByClause;
 
