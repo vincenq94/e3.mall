@@ -125,8 +125,9 @@ public class Page<T> implements InitializingBean, Serializable /* extends RowBou
 	public Map<String, Object> getMap() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("page", page);//当前页
-		map.put("total", records%rows==0? records/rows: (records/rows)+1);//总页数
-		map.put("records", records);//查询出的记录数
+//		map.put("total", records%rows==0? records/rows: (records/rows)+1);//总页数
+		map.put("total", records);//总页数
+//		map.put("records", records);//查询出的记录数
 		map.put("rows", rs);//data
 		return map;
 	}
