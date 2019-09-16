@@ -1,5 +1,7 @@
 package cn.itheima.manager.service.impl;
 
+import cn.itheima.commons.example.SimpleExample;
+import cn.itheima.commons.paging.Page;
 import cn.itheima.commons.service.impl.BaseServiceImpl;
 import cn.itheima.manager.dao.IItemDao;
 import cn.itheima.manager.entity.Item;
@@ -18,4 +20,12 @@ public class ItemServiceImpl extends BaseServiceImpl<Item> implements IItemServi
     public Item selectInfo(Item item) {
         return itemDao.selectByPrimaryKey(item);
     }
+
+    @Override
+    public Page<Item> getItemListPage(Page<Item> page) {
+        SimpleExample simpleExample = new SimpleExample();
+        page = this.selectByExamplePage(simpleExample,page);
+        return page;
+    }
+
 }

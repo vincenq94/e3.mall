@@ -2,9 +2,9 @@ package cn.itheima.manager.dao;
 
 import cn.itheima.commons.dao.IBaseDao;
 import cn.itheima.manager.entity.Item;
-import org.springframework.stereotype.Repository;
+import tk.mybatis.spring.annotation.MapperScan;
 
-@Repository
+@MapperScan
 public interface IItemDao extends IBaseDao<Item> {
 
 }

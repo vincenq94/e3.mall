@@ -3,11 +3,14 @@ package cn.itheima.commons.paging;
 
 import org.springframework.beans.factory.InitializingBean;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Page<T> implements InitializingBean /* extends RowBounds*/ {
+public class Page<T> implements InitializingBean, Serializable /* extends RowBounds*/ {
+
+	private static final long serialVersionUID = 3L;
 
 	private int rows =  0; // 每页显示数量
 	

@@ -1,7 +1,6 @@
 package cn.itheima.manager.web.controller;
 
 import cn.itheima.commons.controller.BaseController;
-import cn.itheima.commons.example.SimpleExample;
 import cn.itheima.commons.paging.Page;
 import cn.itheima.manager.entity.Item;
 import cn.itheima.manager.interfaces.IItemService;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,10 +42,7 @@ public class ItemController extends BaseController {
     public Map<String,Object> getItemListPage(Page<Item> page){
         Map<String, Object> map = new HashMap<>();
         try {
-            List<Item> itemList = itemService.selectAll();
-            Example example = new Example(Item.class);
-            List<Item> items = itemService.selectByExample(example);
-            page = itemService.selectByExamplePage(new SimpleExample(),page);
+            page = itemService.getItemListPage(page);
             map.putAll(page.getMap());
         } catch (Exception e) {
             logger.error("获取服务档案信息异常", e);
@@ -56,5 +51,6 @@ public class ItemController extends BaseController {
         }
         return map;
     }
+
 
 }

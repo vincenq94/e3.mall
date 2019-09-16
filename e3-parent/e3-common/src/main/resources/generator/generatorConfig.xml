@@ -97,7 +97,7 @@
         <table tableName="tb_content_category" mapperName="IContentCategoryDao" domainObjectName="ContentCategory"  >
             <ignoreColumn column="ID"/>
         </table>
-        <table tableName="tb_item" mapperName="IItemDao" domainObjectName="Item"  >
+        <table tableName="tb_item" mapperName="IItemDao" domainObjectName="Item" >
             <ignoreColumn column="ID"/>
         </table>
         <table tableName="tb_item_cat" mapperName="IItemCatDao" domainObjectName="ItemCat"  >

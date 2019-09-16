@@ -21,6 +21,11 @@
         </property>
     </bean>
 
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        <property name="basePackage" value="cn.itheima.manager.dao" />-->
+<!--        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+<!--    </bean>-->
+
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
