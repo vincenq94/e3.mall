@@ -130,4 +130,5 @@
 <!--		<dubbo:registry protocol="zookeeper" address="192.168.174.129:2181" />-->
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemService" id="itemService" />
+	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemCatService" id="itemCatService" />
 </beans>
