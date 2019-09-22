@@ -1,4 +1,4 @@
-Date.prototype.format = function(format){ 
+Date.prototype.format = function(format){
     var o =  { 
     "M+" : this.getMonth()+1, //month 
     "d+" : this.getDate(), //day 
@@ -123,7 +123,7 @@ var E3 = {
     			    onOpen : function(){
     			    	var _win = this;
     			    	$("ul",_win).tree({
-    			    		url:'/item/cat/list',
+    			    		url: ctx +'/itemCatController/selectItemInfoById',
     			    		animate:true,
     			    		onClick : function(node){
     			    			if($(this).tree("isLeaf",node.target)){

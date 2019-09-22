@@ -25,17 +25,19 @@ public class ItemCatController extends BaseController {
 
     @RequestMapping(value="selectItemInfoById")
     @ResponseBody
-    public Map<String,Object> getItemCatList(@RequestParam("name") long parentId){
+    public List<EasyUITreeNode> getItemCatList(@RequestParam(value="id",defaultValue = "0") long parentId) {
         Map<String, Object> map = new HashMap<>();
         try {
             List<EasyUITreeNode> easyUITreeNodeList = itemCatService.getItemCatList(parentId);
-            map.put("itemInfo",itemInfo);
+            return easyUITreeNodeList;
         } catch (Exception e) {
             logger.error("获取服务档案信息异常", e);
             map.put(_MESSAGE, "查询失败");
         }
-        return map;
+        return null;
     }
+
+
 
 
 

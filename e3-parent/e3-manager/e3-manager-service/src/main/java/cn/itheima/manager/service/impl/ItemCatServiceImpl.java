@@ -33,7 +33,7 @@ public class ItemCatServiceImpl extends BaseServiceImpl<ItemCat> implements IIte
         for (ItemCat itemCat : list) {
             EasyUITreeNode node = new EasyUITreeNode();
             //设置属性
-            node.setId(itemCat.getId());
+            node.setId(Long.parseLong(itemCat.getId()));
             node.setText(itemCat.getName());
             node.setState(itemCat.getIsParent()?"closed":"open");
             //添加到结果列表
