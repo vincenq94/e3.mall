@@ -126,8 +126,8 @@
 	<!-- 使用dubbo发布服务 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
 	<dubbo:application name="e3-manager-web" />
-	<dubbo:registry protocol="zookeeper" address="192.168.46.130:2181" />
-<!--		<dubbo:registry protocol="zookeeper" address="192.168.174.129:2181" />-->
+<!--	<dubbo:registry protocol="zookeeper" address="192.168.46.130:2181" />-->
+		<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181" />
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemService" id="itemService" />
 	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemCatService" id="itemCatService" />
