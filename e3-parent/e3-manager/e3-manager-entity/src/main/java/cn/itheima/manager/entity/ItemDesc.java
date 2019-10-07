@@ -9,6 +9,13 @@ import java.util.Date;
 
 @Table(name = "tb_item_desc")
 public class ItemDesc extends BaseEntity {
+
+    /**
+     * 商品表id
+     */
+    @Column(name = "item_id")
+    private String itemId;
+
     /**
      * 创建时间
      */
@@ -79,5 +86,13 @@ public class ItemDesc extends BaseEntity {
      */
     public void setItemDesc(String itemDesc) {
         this.itemDesc = itemDesc == null ? null : itemDesc.trim();
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 }

@@ -2,9 +2,11 @@ package cn.itheima.manager.web.controller;
 
 import cn.itheima.commons.controller.BaseController;
 import cn.itheima.commons.utils.FastDFSClient;
+import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,17 +15,24 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.HashMap;
 import java.util.Map;
 
-@RequestMapping(value="pictrueController")
+@RequestMapping(value="pictrueController",produces = MediaType.TEXT_PLAIN_VALUE + ";charset=utf-8")
 @Controller
 public class PictrueController extends BaseController {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Value("IMAGE_SERVER_URL")
+    @Value("${IMAGE_SERVER_URL}")
     private String IMAGE_SERVER_URL;
-
+    
+    /*** 
+     * Description 新增商品中的图片上传功能
+     * @author nq
+     * @param uploadFile
+     * @return java.lang.String
+     * @CreateDate 2019/10/2 18:17
+     */
     @RequestMapping(value="uploadFile")
     @ResponseBody
-    public Map uploadFile(MultipartFile uploadFile) {
+    public String uploadFile(MultipartFile uploadFile) {
         Map<String, Object> map = new HashMap<>();
         try {
             //把图片上传的图片服务器
@@ -38,13 +47,13 @@ public class PictrueController extends BaseController {
             //封装到map中返回
             map.put("error",0);
             map.put("url",url);
+            String string = JSON.toJSONString(map);
+            return string;
         } catch (Exception e) {
             logger.error("图片上传失败异常", e);
             e.printStackTrace();
-            map.put(_MESSAGE, "图片上传失败");
-            map.put("error",1);
+            return "上传失败";
         }
-        return map;
     }
 
 

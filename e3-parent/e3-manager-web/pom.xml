@@ -19,6 +19,11 @@
         </dependency>
         <dependency>
             <groupId>cn.itheima.e3.mall</groupId>
+            <artifactId>e3-content-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.itheima.e3.mall</groupId>
             <artifactId>e3-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -122,6 +127,15 @@
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-io</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>commons-fileupload</groupId>-->
+<!--            <artifactId>commons-fileupload</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -132,7 +146,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <port>8081</port>
-                    <path>/e3mall-manager-web</path>
+                    <path>/e3mall</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <server>e3Tomcat7</server>
                 </configuration>

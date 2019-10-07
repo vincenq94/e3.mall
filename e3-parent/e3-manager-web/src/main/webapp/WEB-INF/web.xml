@@ -7,7 +7,7 @@
                             http://code.alibabatech.com/schema/dubbo
                             http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
          version="2.5">
-    <display-name>e3-manager-web</display-name>
+    <display-name>e3mall</display-name>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>

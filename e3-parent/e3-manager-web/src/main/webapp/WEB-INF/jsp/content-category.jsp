@@ -12,7 +12,7 @@
 <script type="text/javascript">
 $(function(){
 	$("#contentCategory").tree({
-		url : '/content/category/list',
+		url : ctx + '/contentCatController/list',
 		animate: true,
 		method : "GET",
 		onContextMenu: function(e,node){
@@ -27,7 +27,7 @@ $(function(){
         	var _tree = $(this);
         	if(node.id == 0){
         		// 新增节点
-        		$.post("/content/category/create",{parentId:node.parentId,name:node.text},function(data){
+        		$.post( ctx + "/contentCatController/create",{parentId:node.parentId,name:node.text},function(data){
         			if(data.status == 200){
         				_tree.tree("update",{
             				target : node.target,

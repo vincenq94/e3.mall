@@ -8,5 +8,6 @@
     <result column="created" jdbcType="TIMESTAMP" property="created" />
     <result column="updated" jdbcType="TIMESTAMP" property="updated" />
     <result column="item_desc" jdbcType="LONGVARCHAR" property="itemDesc" />
+    <result column="item_id" jdbcType="LONGVARCHAR" property="itemId" />
   </resultMap>
 </mapper>

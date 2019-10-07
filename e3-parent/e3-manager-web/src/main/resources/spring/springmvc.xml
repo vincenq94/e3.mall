@@ -143,4 +143,6 @@
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemService" id="itemService" />
 	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemCatService" id="itemCatService" />
+	<dubbo:reference interface="cn.itheima.content.interfaces.IContentCategoryService" id="contentCategoryService" />
+	<dubbo:reference interface="cn.itheima.content.interfaces.IContentService" id="contentService" />
 </beans>
