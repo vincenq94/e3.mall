@@ -294,18 +294,6 @@
                 <artifactId>freemarker</artifactId>
                 <version>${freemarker.version}</version>
             </dependency>
-            <!-- shiro依赖 -->
-<!--            <dependency>-->
-<!--                <groupId>org.apache.shiro</groupId>-->
-<!--                <artifactId>shiro-all</artifactId>-->
-<!--                <version>${shiro.version}</version>-->
-<!--                <exclusions>-->
-<!--                    <exclusion>-->
-<!--                        <groupId>org.apache.shiro</groupId>-->
-<!--                        <artifactId>shiro-quartz</artifactId>-->
-<!--                    </exclusion>-->
-<!--                </exclusions>-->
-<!--            </dependency>-->
             <!-- ehcache缓存 -->
             <dependency>
                 <groupId>net.sf.ehcache</groupId>
