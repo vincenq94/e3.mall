@@ -145,4 +145,5 @@
 	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemCatService" id="itemCatService" />
 	<dubbo:reference interface="cn.itheima.content.interfaces.IContentCategoryService" id="contentCategoryService" />
 	<dubbo:reference interface="cn.itheima.content.interfaces.IContentService" id="contentService" />
+	<dubbo:reference interface="cn.itheima.search.interfaces.ISearchItemService" id="searchItemService" />
 </beans>

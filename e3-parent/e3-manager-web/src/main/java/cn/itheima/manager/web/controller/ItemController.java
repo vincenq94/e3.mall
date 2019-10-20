@@ -69,7 +69,7 @@ public class ItemController extends BaseController {
      * @return cn.itheima.commons.utils.E3Result
      * @CreateDate 2019/10/2 22:38
      */
-    @RequestMapping(value="/itemController/addItem", method= RequestMethod.POST)
+    @RequestMapping(value="/addItem", method= RequestMethod.POST)
     @ResponseBody
     public E3Result addItem(Item item, String desc) {
         E3Result result = itemService.addItem(item, desc);

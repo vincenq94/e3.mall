@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<!-- 配置扫描 -->
-	<context:component-scan base-package="cn.itheima.portal.web.controller" />
+	<context:component-scan base-package="cn.itheima.search.web.controller" />
 
 	<!-- Spring 3.0.x中使用了mvc:annotation-driven后，默认会帮我们注册默认处理请求，参数和返回值的类，其中最主要的两个类：DefaultAnnotationHandlerMapping 和 AnnotationMethodHandlerAdapter ，分别为HandlerMapping的实现类和HandlerAdapter的实现类，从3.1.x版本开始对应实现类改为了RequestMappingHandlerMapping和RequestMappingHandlerAdapter。
 
@@ -133,6 +133,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+    <!-- 全局异常处理器 -->
+    <bean class="cn.itheima.search.web.exception.GlobalExceptionResolver"/>
 
 
 	<!-- 使用dubbo发布服务 -->
@@ -141,7 +143,5 @@
 <!--	<dubbo:registry protocol="zookeeper" address="192.168.46.130:2181" />-->
 		<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181" />
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemService" id="itemService" />
-	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemCatService" id="itemCatService" />
-	<dubbo:reference interface="cn.itheima.content.interfaces.IContentService" id="contentService" />
+	<dubbo:reference interface="cn.itheima.search.interfaces.ISearchService" id="searchService" />
 </beans>

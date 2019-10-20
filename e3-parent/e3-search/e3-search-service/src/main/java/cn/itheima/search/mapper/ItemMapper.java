@@ -1,10 +1,12 @@
-package cn.e3mall.search.mapper;
+package cn.itheima.search.mapper;
+
+import cn.itheima.commons.pojo.SearchItem;
+import tk.mybatis.spring.annotation.MapperScan;
 
 import java.util.List;
-
-import cn.e3mall.common.pojo.SearchItem;
-
+@MapperScan
 public interface ItemMapper {
 
 	List<SearchItem> getItemList();
+	SearchItem getItemById(String itemId);
 }

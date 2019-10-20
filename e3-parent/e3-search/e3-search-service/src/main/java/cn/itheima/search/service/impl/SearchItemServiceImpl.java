@@ -1,16 +1,15 @@
-package cn.e3mall.search.service.impl;
+package cn.itheima.search.service.impl;
 
-import java.util.List;
-
+import cn.itheima.commons.pojo.SearchItem;
+import cn.itheima.commons.utils.E3Result;
+import cn.itheima.search.interfaces.ISearchItemService;
+import cn.itheima.search.mapper.ItemMapper;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.common.SolrInputDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.e3mall.common.pojo.SearchItem;
-import cn.e3mall.common.utils.E3Result;
-import cn.e3mall.search.mapper.ItemMapper;
-import cn.e3mall.search.service.SearchItemService;
+import java.util.List;
 
 /**
  * 索引库维护Service
@@ -20,7 +19,7 @@ import cn.e3mall.search.service.SearchItemService;
  * @version 1.0
  */
 @Service
-public class SearchItemServiceImpl implements SearchItemService {
+public class SearchItemServiceImpl implements ISearchItemService {
 
 	@Autowired
 	private ItemMapper itemMapper;

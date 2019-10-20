@@ -1,12 +1,12 @@
-package cn.e3mall.search.service.impl;
+package cn.itheima.search.service.impl;
 
+import cn.itheima.commons.pojo.SearchResult;
+import cn.itheima.search.dao.SearchDao;
+import cn.itheima.search.interfaces.ISearchService;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.e3mall.common.pojo.SearchResult;
-import cn.e3mall.search.dao.SearchDao;
-import cn.e3mall.search.service.SearchService;
 
 /**
  * 商品搜索Service
@@ -16,7 +16,7 @@ import cn.e3mall.search.service.SearchService;
  * @version 1.0
  */
 @Service
-public class SearchServiceImpl implements SearchService {
+public class SearchServiceImpl implements ISearchService {
 	
 	@Autowired
 	private SearchDao searchDao;

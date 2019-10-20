@@ -1,6 +1,6 @@
-package cn.e3mall.search.service;
+package cn.itheima.search.interfaces;
 
-import cn.e3mall.common.utils.E3Result;
+import cn.itheima.commons.utils.E3Result;
 
 public interface ISearchItemService {
 
