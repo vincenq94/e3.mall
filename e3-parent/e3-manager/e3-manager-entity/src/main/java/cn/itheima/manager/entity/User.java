@@ -1,14 +1,19 @@
 package cn.itheima.manager.entity;
 
 
-import cn.itheima.commons.entity.BaseEntity;
-
 import javax.persistence.Column;
 import javax.persistence.Table;
 import java.util.Date;
 
 @Table(name = "tb_user")
-public class User extends BaseEntity {
+public class User {
+
+    /**
+     * 用户名
+     */
+    @Column(name = "ID")
+    private int id;
+
     /**
      * 用户名
      */
@@ -137,5 +142,14 @@ public class User extends BaseEntity {
      */
     public void setUpdated(Date updated) {
         this.updated = updated;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
