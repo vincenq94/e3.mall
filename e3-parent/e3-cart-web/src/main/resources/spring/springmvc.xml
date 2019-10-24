@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
 	<!-- 配置扫描 -->
-	<context:component-scan base-package="cn.itheima.sso" />
+	<context:component-scan base-package="cn.itheima.cart.controller" />
 
 	<!-- Spring 3.0.x中使用了mvc:annotation-driven后，默认会帮我们注册默认处理请求，参数和返回值的类，其中最主要的两个类：DefaultAnnotationHandlerMapping 和 AnnotationMethodHandlerAdapter ，分别为HandlerMapping的实现类和HandlerAdapter的实现类，从3.1.x版本开始对应实现类改为了RequestMappingHandlerMapping和RequestMappingHandlerAdapter。
 
@@ -137,11 +137,11 @@
 
 	<!-- 使用dubbo发布服务 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="e3-sso-web" />
+	<dubbo:application name="e3-cart-web" />
 <!--	<dubbo:registry protocol="zookeeper" address="192.168.46.130:2181" />-->
 		<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181" />
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:reference interface="cn.itheima.sso.interfaces.LoginService" id="loginService" />
-	<dubbo:reference interface="cn.itheima.sso.interfaces.RegisterService" id="registerService" />
-	<dubbo:reference interface="cn.itheima.sso.interfaces.TokenService" id="tokenService" />
+	<dubbo:reference interface="cn.itheima.manager.interfaces.IItemService" id="itemService" />
+<!--	<dubbo:reference interface="cn.itheima.sso.interfaces.RegisterService" id="registerService" />-->
+<!--	<dubbo:reference interface="cn.itheima.sso.interfaces.TokenService" id="tokenService" />-->
 </beans>

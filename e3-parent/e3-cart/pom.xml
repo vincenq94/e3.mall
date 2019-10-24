@@ -13,7 +13,7 @@
         <module>e3-cart-interface</module>
         <module>e3-cart-service</module>
     </modules>
-    <artifactId>e3-sso</artifactId>
+    <artifactId>e3-cart</artifactId>
 
     <build>
         <plugins>
@@ -22,7 +22,7 @@
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
-                    <port>8087</port>
+                    <port>8089</port>
                     <path>/</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <server>e3Tomcat7</server>

@@ -11,19 +11,19 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 	<!-- 配置包扫描器 -->
-	<context:component-scan base-package="cn.itheima.sso.service.impl"/>
+	<context:component-scan base-package="cn.itheima.cart.service.impl"/>
 
 
 	<!-- 使用dubbo发布服务 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="e3-content" />
+	<dubbo:application name="e3-cart" />
 <!--	<dubbo:registry protocol="zookeeper" address="192.168.46.130:2181" />-->
 	<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181" />
 	<!-- 用dubbo协议在20881端口暴露服务 -->
-	<dubbo:protocol name="dubbo" port="20883" />
+	<dubbo:protocol name="dubbo" port="20884" />
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="cn.itheima.sso.interfaces.LoginService" ref="loginServiceImpl" timeout="600000"/>
-	<dubbo:service interface="cn.itheima.sso.interfaces.RegisterService" ref="registerServiceImpl" timeout="600000"/>
-	<dubbo:service interface="cn.itheima.sso.interfaces.TokenService" ref="tokenServiceImpl" timeout="600000"/>
+<!--	<dubbo:service interface="cn.itheima.sso.interfaces.LoginService" ref="loginServiceImpl" timeout="600000"/>-->
+<!--	<dubbo:service interface="cn.itheima.sso.interfaces.RegisterService" ref="registerServiceImpl" timeout="600000"/>-->
+<!--	<dubbo:service interface="cn.itheima.sso.interfaces.TokenService" ref="tokenServiceImpl" timeout="600000"/>-->
 
 </beans>

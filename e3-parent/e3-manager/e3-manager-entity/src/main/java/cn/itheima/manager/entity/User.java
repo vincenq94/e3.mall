@@ -3,10 +3,11 @@ package cn.itheima.manager.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Table(name = "tb_user")
-public class User {
+public class User implements Serializable {
 
     /**
      * 用户名

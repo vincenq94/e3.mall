@@ -44,7 +44,7 @@
 			  shade.style.width = '100%';
 			  shade.style.position = 'absolute';
 			  shade.style.top = 0;
-			  shade.style.backgroundColor = '#89652b';
+			  shade.style.backgroundColor = '#989898';
 			  shade.style.opacity = .2;
 			  document.body.appendChild(shade);
 		  }
@@ -134,10 +134,17 @@
 			
 			$("#popup_container").css({
 				position: pos,
-				zIndex: 99999,
+				zIndex: 100000,
 				padding: 0,
 				margin: 0
 			});
+			
+			if ($.browser.msie && $.browser.version < 7) {
+				$ie6Fix = $('<iframe frameborder="0" src="#" id="shadow"></iframe>').css({
+					position: "absolute",
+					zIndex: 99999
+				}).insertBefore("#popup_container")
+			}
 			
 			$("#popup_title").text(title);
 			$("#popup_content").addClass(type);
@@ -214,7 +221,130 @@
 			}
 		},
 		
+		
+		_showNew: function(showX, showP, width_m, title, msg, value, type, callback) {
+			Shade.show();
+			$.alerts._hide();
+			$.alerts._overlay('show');
+			
+			if(showX==1){
+				titlehead = '<div class="titlehead"><h3 id="popup_title"></h3><span id="titlehead_x" class="sd_close"></span></div>';	
+			}else{
+				titlehead = '<div class="titlehead"><h3 id="popup_title"></h3></div>';
+			}
+			
+			if(width_m == null){
+				width_m = $("#popup_container").outerWidth();
+			}
+			
+			if(showP==1){
+				sd_img = '<div class="sd_img"></div>';	
+			}else{
+				sd_img = '';	
+			}
+			
+			$("BODY").append(
+			  '<div id="popup_container" class="window sd_window">' +
+			    titlehead +
+			    '<div id="popup_content" class="content">' +
+			      '<div class="dig_content">'+
+			      	sd_img +
+			      	'<div id="popup_message" class="popup_message">' +
+			      		//'<div id="popup_message"></div>' +
+			      	'</div>' +
+			      '</div>' +
+				'</div>' +
+			  '</div>');
+			
+			if( $.alerts.dialogClass ) $("#popup_container").addClass($.alerts.dialogClass);
+			
+			// IE6 Fix
+			var pos = ($.browser.msie && parseInt($.browser.version) <= 6 ) ? 'absolute' : 'fixed'; 
+			
+			$("#popup_container").css({
+				position: pos,
+				zIndex: 100000,
+				margin: 0
+			});
+			
+			if ($.browser.msie && $.browser.version < 7) {
+				$ie6Fix = $('<iframe frameborder="0" src="#" id="shadow"></iframe>').css({
+					position: "absolute",
+					zIndex: 99999
+				}).insertBefore("#popup_container")
+			}
+			
+			$("#popup_title").text(title);
+			$("#popup_content").addClass(type);
+			/*if(msg!=null){
+				$("#popup_message").text(msg);
+			}*/
+			$("#popup_message").text(msg);
+			$("#popup_message").html( $("#popup_message").text().replace(/\n/g, '<br />') );
+			
+			$("#popup_container").css({
+				minWidth: width_m,
+				maxWidth: width_m
+			});	
+			
+			$.alerts._reposition();
+			$.alerts._maintainPosition(true);
+
+			switch( type ) {
+				case 'alert':
+					$("#titlehead_x").click( function() {
+						$.alerts._hide();
+						Shade.hide();
+						if( callback ) callback(true);
+					});
+					$("#popup_message").after('<div id="popup_panel"><input type="button" value="' + $.alerts.okButton + '" id="popup_ok" class="sd_btn" /></div>');
+					$("#popup_ok").click( function() {
+						$.alerts._hide();
+						Shade.hide();
+						if( callback ) callback(true);
+					});
+					$("#popup_ok").focus().keypress( function(e) {
+						if( e.keyCode == 13 || e.keyCode == 27 ) $("#popup_ok").trigger('click');
+					});
+				break;
+				case 'confirm':
+					$("#titlehead_x").click( function() {
+						$.alerts._hide();
+						Shade.hide();
+						top.location.reload();
+					});
+					$("#popup_message").after('<div id="popup_panel"><input type="button" value="' + $.alerts.okButton + '" id="popup_ok" class="sd_btn sd_floatleft"/> <input type="button" value="' + $.alerts.cancelButton + '" id="popup_cancel" class="sd_btn1 sd_floatleft"/></div>');
+					$("#popup_ok").click( function() {
+						$.alerts._hide();
+						Shade.hide();
+						if( callback ) callback(true);
+					});
+					$("#popup_cancel").click( function() {
+						$.alerts._hide();
+						Shade.hide();
+						top.location.reload();
+					});
+					$("#popup_ok").focus();
+					$("#popup_ok, #popup_cancel").keypress( function(e) {
+						if( e.keyCode == 13 ) $("#popup_ok").trigger('click');
+						if( e.keyCode == 27 ) $("#popup_cancel").trigger('click');
+					});
+				break;
+			}
+			
+			// Make draggable
+			if( $.alerts.draggable ) {
+				try {
+					$("#popup_container").draggable({ handle: $("#popup_title") });
+					$("#popup_title").css({ cursor: 'move' });
+				} catch(e) { /* requires jQuery UI draggables */ }
+			}
+		},
+		
 		_hide: function() {
+			if ($.browser.msie && $.browser.version < 7) {
+				$("#shadow").remove();
+			}
 			$("#popup_container").remove();
 			$.alerts._overlay('hide');
 			$.alerts._maintainPosition(false);
@@ -245,6 +375,8 @@
 		_reposition: function() {
 			var top = (($(window).height() / 2) - ($("#popup_container").outerHeight() / 2)) + $.alerts.verticalOffset;
 			var left = (($(window).width() / 2) - ($("#popup_container").outerWidth() / 2)) + $.alerts.horizontalOffset;
+			var height = $("#popup_container").outerHeight(true);
+			var width = $("#popup_container").outerWidth(true);
 			if( top < 0 ) top = 0;
 			if( left < 0 ) left = 0;
 			
@@ -256,6 +388,12 @@
 				left: left + 'px'
 			});
 			$("#popup_overlay").height( $(document).height() );
+			$("#shadow").css({
+				top: top + 'px',
+				left: left + 'px',
+				height: height + 34 + 'px',
+				width: width + 'px'
+			});
 		},
 		
 		_maintainPosition: function(status) {
@@ -284,6 +422,20 @@
 		
 	jPrompt = function(message, value, title, callback) {
 		$.alerts.prompt(message, value, title, callback);
+	};
+
+	jAlertNew = function(showX, showP, width, message, title, callback) {
+		if( title == null ) title = '提示信息';
+		$.alerts._showNew(showX, showP, width, title, message, null, 'alert', function(result) {
+			if( callback ) callback(result);
+		});
+	}
+
+	jConfirmNew = function(showX, showP, width, message, title, callback) {
+		if( title == null ) title = '提示信息';
+		$.alerts._showNew(showX, showP, width, title, message, null, 'confirm', function(result) {
+			if( callback ) callback(result);
+		});
 	};
 	
 })(jQuery);
