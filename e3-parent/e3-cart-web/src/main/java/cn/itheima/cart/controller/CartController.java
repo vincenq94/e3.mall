@@ -1,8 +1,6 @@
 package cn.itheima.cart.controller;
 
-import cn.e3mall.cart.service.CartService;
-import cn.e3mall.pojo.TbItem;
-import cn.e3mall.pojo.TbUser;
+import cn.itheima.cart.interfaces.CartService;
 import cn.itheima.commons.utils.CookieUtils;
 import cn.itheima.commons.utils.E3Result;
 import cn.itheima.commons.utils.JsonUtils;
@@ -60,7 +58,7 @@ public class CartController {
 		boolean flag = false;
 		for (Item tbItem : cartList) {
 			//如果存在数量相加
-			if (tbItem.getId() == itemId.longValue()) {
+			if (Long.valueOf(tbItem.getId()) == itemId.longValue()) {
 				flag = true;
 				//找到商品，数量相加
 				tbItem.setNum(tbItem.getNum() + num);
@@ -153,7 +151,7 @@ public class CartController {
 		List<Item> cartList = getCartListFromCookie(request);
 		//遍历商品列表找到对应的商品
 		for (Item tbItem : cartList) {
-			if (tbItem.getId().longValue() == itemId) {
+			if (Long.valueOf(tbItem.getId()) == itemId) {
 				//更新数量
 				tbItem.setNum(num);
 				break;
@@ -181,7 +179,7 @@ public class CartController {
 		List<Item> cartList = getCartListFromCookie(request);
 		//遍历列表，找到要删除的商品
 		for (Item tbItem : cartList) {
-			if (tbItem.getId().longValue() == itemId) {
+			if (Long.valueOf(tbItem.getId()) == itemId) {
 				//删除商品
 				cartList.remove(tbItem);
 				//跳出循环

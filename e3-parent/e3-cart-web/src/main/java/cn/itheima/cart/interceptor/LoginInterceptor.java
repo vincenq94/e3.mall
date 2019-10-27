@@ -1,17 +1,16 @@
 package cn.itheima.cart.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import cn.itheima.commons.utils.CookieUtils;
+import cn.itheima.commons.utils.E3Result;
+import cn.itheima.manager.entity.User;
+import cn.itheima.sso.interfaces.TokenService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.e3mall.common.utils.CookieUtils;
-import cn.e3mall.common.utils.E3Result;
-import cn.e3mall.pojo.TbUser;
-import cn.e3mall.sso.service.TokenService;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 用户登录处理拦截器
@@ -42,7 +41,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 			return true;
 		}
 		//5.取到用户信息。登录状态。
-		TbUser user = (TbUser) e3Result.getData();
+		User user = (User) e3Result.getData();
 		//6.把用户信息放到request中。只需要在Controller中判断request中是否包含user信息。放行
 		request.setAttribute("user", user);
 		return true;
